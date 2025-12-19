@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Pozzolana - Technical Documents | Peakward</title>
+  <link rel="icon" href="https://peakward.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Navigation */
+    nav {
+      background: #001b55;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    
+    nav .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .logo img {
+      height: 42px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: opacity 0.2s;
+    }
+    
+    .nav-links a:hover {
+      opacity: 0.85;
+    }
+    
+    .nav-btn {
+      background: #0074ff;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    
+    .nav-btn:hover {
+      background: #0062d6;
+    }
+    
+    .burger-menu {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .burger-menu span {
+      width: 26px;
+      height: 2px;
+      background: white;
+    }
+    
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, rgba(0,27,85,0.88), rgba(0,50,120,0.75)), 
+                  url('./PeakwardPozzolana_files/product4.43784ccf5f73124f5f67.png') center/cover;
+      color: white;
+      padding: 110px 0 70px;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    
+    .hero p {
+      font-size: 18px;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+      opacity: 0.95;
+    }
+    
+    .hero button {
+      background: #0074ff;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .hero button:hover {
+      background: #0062d6;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,116,255,0.3);
+    }
+    
+    /* Environmental Benefits */
+    .benefits {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .benefits-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .benefits-text h2 {
+      color: #0074ff;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    
+    .benefits-text h3 {
+      font-size: 36px;
+      color: #001b55;
+      margin-bottom: 24px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+    
+    .benefits-text button {
+      background: #0074ff;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+    
+    .benefits-text button:hover {
+      background: #0062d6;
+    }
+    
+    .benefits-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .benefits-list li {
+      padding: 12px 0 12px 30px;
+      position: relative;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .benefits-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0074ff;
+      font-weight: 900;
+      font-size: 18px;
+    }
+    
+    /* Specifications */
+    .specifications {
+      background: #f8f9fa;
+      padding: 70px 0;
+    }
+    
+    .specifications h2 {
+      text-align: center;
+      font-size: 36px;
+      color: #001b55;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+    
+    .spec-table {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    thead {
+      background: #001b55;
+      color: white;
+    }
+    
+    th {
+      padding: 16px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    
+    tbody tr:hover {
+      background: #f8f9fa;
+    }
+    
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* Documents Section */
+    .documents {
+      background: white;
+      padding: 80px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-header h2 {
+      font-size: 38px;
+      color: #001b55;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    
+    .section-header p {
+      color: #666;
+      font-size: 16px;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .doc-card {
+      background: white;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #e8ecf1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .doc-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+    
+    .doc-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 7px 15px;
+      border-radius: 25px;
+      margin-bottom: 18px;
+      width: fit-content;
+    }
+    
+    .doc-card h3 {
+      font-size: 21px;
+      color: #001b55;
+      margin-bottom: 12px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    
+    .doc-card .description {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    
+    .doc-meta {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 22px;
+      padding-top: 14px;
+      border-top: 1px solid #f0f0f0;
+    }
+    
+    .doc-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn {
+      flex: 1;
+      padding: 13px 20px;
+      border-radius: 7px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      display: inline-block;
+    }
+    
+    .btn-download {
+      background: #0074ff;
+      color: white;
+    }
+    
+    .btn-download:hover {
+      background: #0062d6;
+      transform: scale(1.03);
+    }
+    
+    .btn-view {
+      background: #f1f3f5;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+    
+    .btn-view:hover {
+      background: #e3e6e9;
+    }
+    
+    /* Product Info */
+    .product-info {
+      padding: 70px 0;
+      background: #f8f9fa;
+    }
+    
+    .product-info p {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.7;
+    }
+    
+    .product-info h3 {
+      font-size: 24px;
+      color: #001b55;
+      margin-bottom: 20px;
+    }
+    
+    .product-info ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .product-info li {
+      padding: 12px 0;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+    
+    .product-info li span {
+      font-weight: 700;
+      color: #001b55;
+    }
+    
+    /* Go Green */
+    .go-green {
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      padding: 70px 0;
+      color: white;
+      text-align: center;
+    }
+    
+    .go-green-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    
+    .go-green h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+    
+    .go-green p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+    
+    .go-green img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    
+    /* Supply Sources */
+    .supply-sources {
+      background: white;
+      padding: 70px 0;
+      text-align: center;
+    }
+    
+    .supply-sources h2 {
+      font-size: 36px;
+      color: #001b55;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    
+    .countries {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .country-tag {
+      background: #0074ff;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .map-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .map-container img {
+      width: 100%;
+      height: auto;
+    }
+    
+    /* How We Do It */
+    .how-we-do {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 80px 0;
+      color: white;
+    }
+    
+    .how-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .how-text h2 {
+      font-size: 40px;
+      margin-bottom: 24px;
+      font-weight: 900;
+    }
+    
+    .how-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+    
+    .how-text button {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 14px 30px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .how-text button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+    }
+    
+    /* Products Gallery */
+    .products-gallery {
+      background: #f8f9fa;
+      padding: 70px 0;
+    }
+    
+    .products-gallery h2 {
+      text-align: center;
+      font-size: 36px;
+      color: #001b55;
+      margin-bottom: 50px;
+      font-weight: 700;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .product-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+    
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .product-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 30px 20px 20px;
+      color: white;
+    }
+    
+    .product-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .product-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    /* Footer */
+    footer {
+      background: #001b55;
+      color: white;
+      padding: 60px 0 0;
+    }
+    
+    .flags-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    
+    .flags-row img {
+      height: 36px;
+      width: auto;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+    
+    .flags-row img:hover {
+      opacity: 1;
+    }
+    
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-nav-section h4 {
+      font-size: 18px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    
+    .footer-nav-grid a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    
+    .footer-nav-grid a:hover {
+      color: white;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin: 20px 0;
+    }
+    
+    .social-icons img {
+      height: 22px;
+      width: 22px;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    
+    .social-icons a:hover img {
+      opacity: 1;
+    }
+    
+    .footer-contact {
+      font-size: 14px;
+      margin-top: 15px;
+      line-height: 1.8;
+    }
+    
+    .footer-contact a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+    }
+    
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    
+    .office h5 {
+      font-size: 15px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+    
+    .office h6 {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .office p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 5px;
+      opacity: 0.85;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 25px 0;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+    
+    /* Image Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal-backdrop.active {
+      display: flex;
+    }
+    
+    .modal-inner {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+    }
+    
+    .modal-inner img {
+      max-width: 100%;
+      max-height: 88vh;
+      display: block;
+      border-radius: 6px;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      color: #333;
+      line-height: 1;
+      transition: all 0.2s;
+    }
+    
+    .close-modal:hover {
+      background: #f1f3f5;
+      transform: rotate(90deg);
+    }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #001b55;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .nav-links.open {
+        display: flex;
+      }
+      
+      .burger-menu {
+        display: flex;
+      }
+      
+      nav .nav-container {
+        position: relative;
+      }
+      
+      .hero h1 {
+        font-size: 32px;
+      }
+      
+      .hero p {
+        font-size: 16px;
+      }
+      
+      .benefits-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .benefits-text h3 {
+        font-size: 28px;
+      }
+      
+      .doc-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .how-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .footer-nav-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .go-green-content {
+        flex-direction: column;
+      }
+      
+      table {
+        font-size: 12px;
+      }
+      
+      th, td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-left">
+        <div class="logo">
+          <a href="https://peakward.com/">
+            <img src="./PeakwardPozzolana_files/logo.6e788eaec1839d0a7efdca600ef84289.svg" alt="Peakward">
+          </a>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="https://peakward.com/">Home</a>
+          <a href="https://peakward.com/pozzolana">Pozzolana</a>
+          <a href="https://peakward.com/about">About</a>
+          <a href="https://peakward.com/contact">Contact</a>
+        </div>
+      </div>
+      <a href="https://peakward.com/contact" class="nav-btn">Get Quote</a>
+      <button class="burger-menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Natural Pozzolana</h1>
+      <p>Natural Pozzolana is an excellent replacement for expensive cement raw materials like Slag, Clinker, Limestone and Fly Ash. It maximizes profits without compromising quality, delivering high-strength cement with faster setting times. Our Natural Pozzolana is sourced from volcanic eruptions worldwide, rich in Silica, and ready for direct mixing with clinker or cement.</p>
+      <button onclick="document.getElementById('documents').scrollIntoView({behavior:'smooth'})">View Technical Documents</button>
+    </div>
+  </section>
+
+  <!-- Environmental Benefits -->
+  <section class="benefits">
+    <div class="container">
+      <div class="benefits-content">
+        <div class="benefits-text">
+          <h2>ENVIRONMENTAL BENEFITS</h2>
+          <h3>Building a better world with Natural Pozzolana</h3>
+          <button onclick="document.getElementById('documents').scrollIntoView({behavior:'smooth'})">View Technical Documents</button>
+        </div>
+        <div class="benefits-list">
+          <ul>
+            <li>Natural Pozzolana is the best choice of 3rd Materials</li>
+            <li>ZERO man-made CO₂ emission</li>
+            <li>Reduces carbon footprint of Construction Projects</li>
+            <li>Less power consumption & prolonged grinding equipment life</li>
+            <li>More economical than other 3rd materials</li>
+            <li>Free from poisonous heavy elements (Cd, Hg, Pb)</li>
+            <li>Reduces creep and shrinkage of hardened concrete</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specifications -->
+  <section class="specifications">
+    <div class="container">
+      <h2>Typical Specifications</h2>
+      <div class="spec-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Parameter</th>
+              <th>Chemical</th>
+              <th>Typical Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Silicon Dioxide</td><td>SiO₂</td><td>62.008</td></tr>
+            <tr><td>2</td><td>Aluminium Oxide</td><td>Al₂O₃</td><td>17.810</td></tr>
+            <tr><td>3</td><td>Ferric Oxide</td><td>Fe₂O₃</td><td>6.252</td></tr>
+            <tr><td>4</td><td>Calcium Oxide</td><td>CaO</td><td>2.882</td></tr>
+            <tr><td>5</td><td>Magnesium Oxide</td><td>MgO</td><td>1.055</td></tr>
+            <tr><td>6</td><td>Sulfur Trioxide</td><td>SO₃</td><td>0.006</td></tr>
+            <tr><td>7</td><td>Titanium Oxide</td><td>TiO₂</td><td>0.717</td></tr>
+            <tr><td>8</td><td>Manganese Oxide</td><td>MnO₂</td><td>0.063</td></tr>
+            <tr><td>9</td><td>Sodium Oxide</td><td>Na₂O</td><td>1.420</td></tr>
+            <tr><td>10</td><td>Potassium Oxide</td><td>K₂O</td><td>1.203</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Documents -->
+  <section class="documents" id="documents">
+    <div class="container">
+      <div class="section-header">
+        <h2>Technical Documents & Certifications</h2>
+        <p>Download regulatory approvals, quality certificates, test reports and technical presentations for our Natural Pozzolana</p>
+      </div>
+      
+      <div class="doc-grid">
+        <!-- Caltrans -->
+        <div class="doc-card">
+          <span class="doc-badge">Regulatory Approval</span>
+          <h3>Caltrans Approval</h3>
+          <p class="description">Official Caltrans approval for using Natural Pozzolana in compliant infrastructure applications.</p>
+          <div class="doc-meta">Region: USA · Authority: Caltrans</div>
+          <div class="doc-actions">
+            <a href="./PDF/Caltrans approval.jpg" download="Caltrans-Approval.jpg" class="btn btn-download">Download</a>
+            <button onclick="viewImage('./PDF/Caltrans approval.jpg')" class="btn btn-view">View</button>
+          </div>
+        </div>
+
+        <!-- Consistency -->
+        <div class="doc-card">
+          <span class="doc-badge">Technical Report</span>
+          <h3>Consistency of Natural Pozzolan</h3>
+          <p class="description">Detailed consistency assessment covering physical and chemical parameters from 2013-2022.</p>
+          <div class="doc-meta">Type: Laboratory Report · Period: 2013-2022</div>
+          <div class="doc-actions">
+            <a href="./PDF/Consistency of NP 2013-22.png" download="Consistency-NP.png" class="btn btn-download">Download</a>
+            <button onclick="viewImage('./PDF/Consistency of NP 2013-22.png')" class="btn btn-view">View</button>
+          </div>
+        </div>
+
+        <!-- COQ -->
+        <div class="doc-card">
+          <span class="doc-badge">Quality Certificate</span>
+          <h3>COQ – Certificate of Quality</h3>
+          <p class="description">Certificate summarising chemical composition, physical properties and compliance benchmarks.</p>
+          <div class="doc-meta">Type: COQ · Format: PDF</div>
+          <div class="doc-actions">
+            <a href="./PDF/COQ.pdf" download="COQ-Natural-Pozzolana.pdf" class="btn btn-download">Download</a>
+            <a href="./PDF/COQ.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+
+        <!-- Dubai -->
+        <div class="doc-card">
+          <span class="doc-badge">Regulatory Approval</span>
+          <h3>Dubai Municipality Approval</h3>
+          <p class="description">Dubai Municipality approval confirming suitability for regional standards.</p>
+          <div class="doc-meta">Region: UAE · Authority: Dubai Municipality</div>
+          <div class="doc-actions">
+            <a href="./PDF/Dubai approval -English.jpg" download="Dubai-Approval.jpg" class="btn btn-download">Download</a>
+            <button onclick="viewImage('./PDF/Dubai approval -English.jpg')" class="btn btn-view">View</button>
+          </div>
+        </div>
+
+        <!-- Hong Kong -->
+        <div class="doc-card">
+          <span class="doc-badge">Independent Report</span>
+          <h3>Hong Kong Final Report</h3>
+          <p class="description">Final evaluation from Hong Kong University testing and validation programmes.</p>
+          <div class="doc-meta">Region: Hong Kong · Institution: HKU</div>
+          <div class="doc-actions">
+            <a href="./PDF/HKU FInal report.pdf" download="HKU-Report.pdf" class="btn btn-download">Download</a>
+            <a href="./PDF/HKU FInal report.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+
+        <!-- PSD -->
+        <div class="doc-card">
+          <span class="doc-badge">Material Data</span>
+          <h3>PSD – Particle Size Distribution</h3>
+          <p class="description">Particle size distribution curves and statistics supporting mix design optimisation.</p>
+          <div class="doc-meta">Type: Laboratory Data · Analysis: Elemental</div>
+          <div class="doc-actions">
+            <a href="./PDF/PSD (Element).png" download="PSD-Analysis.png" class="btn btn-download">Download</a>
+            <button onclick="viewImage('./PDF/PSD (Element).png')" class="btn btn-view">View</button>
+          </div>
+        </div>
+
+        <!-- Presentation -->
+        <div class="doc-card">
+          <span class="doc-badge">Presentation</span>
+          <h3>Pozzolan Presentation</h3>
+          <p class="description">Comprehensive presentation covering benefits, applications and performance highlights.</p>
+          <div class="doc-meta">Type: Presentation · Format: PDF</div>
+          <div class="doc-actions">
+            <a href="./PDF/Pozzolona PP  Final.pdf" download="Pozzolana-Presentation.pdf" class="btn btn-download">Download</a>
+            <a href="./PDF/Pozzolona PP  Final.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+
+        <!-- Trial Summary -->
+        <div class="doc-card">
+          <span class="doc-badge">Field Trials</span>
+          <h3>Trial Summary Report</h3>
+          <p class="description">Field and plant trials demonstrating NP performance in real-world concrete mixes.</p>
+          <div class="doc-meta">Type: Trial Report · Format: PDF</div>
+          <div class="doc-actions">
+            <a href="./PDF/Trial Summary Report.pdf" download="Trial-Summary.pdf" class="btn btn-download">Download</a>
+            <a href="./PDF/Trial Summary Report.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+
+        <!-- France Presentation -->
+        <div class="doc-card">
+          <span class="doc-badge">International</span>
+          <h3>France Presentation on NP</h3>
+          <p class="description">Conference presentation for the French market with performance data and case studies.</p>
+          <div class="doc-meta">Region: France · Type: Presentation</div>
+          <div class="doc-actions">
+            <a href="./PDF/Pozzolana - France Presentation.pdf" download="France-Presentation.pdf" class="btn btn-download">Download</a>
+            <a href="./PDF/Pozzolana - France Presentation.pdf" target="_blank" class="btn btn-view">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Info -->
+  <section class="product-info">
+    <div class="container">
+      <p>Peakward Group is a trusted supplier of high-quality pozzolana, serving a wide range of industries and applications. Our pozzolana products are carefully sourced and meet stringent quality standards.</p>
+      <h3>Our Pozzolana Offerings:</h3>
+      <ul>
+        <li><span>Construction-Grade Pozzolana:</span> Widely used as a key ingredient in cement, concrete, and construction materials, enhancing strength and durability for robust, sustainable structures.</li>
+        <li><span>Agricultural Pozzolana:</span> Beneficial for soil amendment, improving fertility, moisture retention, and nutrient availability for sustainable farming.</li>
+        <li><span>Industrial-Grade Pozzolana:</span> Applications in cement manufacturing, ceramics, and chemical production, meeting strict quality specifications for optimal performance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Go Green -->
+  <section class="go-green">
+    <div class="container">
+      <div class="go-green-content">
+        <div>
+          <h2>Go Green</h2>
+          <p>Save the world for a better future</p>
+        </div>
+        <img src="./PeakwardPozzolana_files/poster.001dfc2c291a31107230.png" alt="Go Green">
+      </div>
+    </div>
+  </section>
+
+  <!-- Supply Sources -->
+  <section class="supply-sources">
+    <div class="container">
+      <h2>Natural Pozzolana Supply Sources</h2>
+      <div class="countries">
+        <span class="country-tag">Indonesia</span>
+      </div>
+      <div class="map-container">
+        <img src="./PeakwardPozzolana_files/map.f418cde568df5e0b63de0675457fa8d8.svg" alt="Supply Map">
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Do It -->
+  <section class="how-we-do">
+    <div class="container">
+      <div class="how-content">
+        <div class="how-text">
+          <h2>How We Do It</h2>
+          <p>At Peakward Group, our approach is governed by our unwavering commitment to quality, sustainability, and customer satisfaction. Our process begins with stringent sourcing from trusted suppliers worldwide. We harness efficient supply chain management and an expansive logistics network to ensure smooth, timely transportation. Our operations strictly adhere to international environmental standards and sustainability best practices.</p>
+          <button onclick="window.open('https://peakward.com/static/media/shipping.6dfc4ac40bdc6cc9fafc.pdf','_blank')">
+            Download Company Portfolio
+            <svg width="16" height="16" viewBox="0 0 384 512" fill="currentColor">
+              <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"/>
+            </svg>
+          </button>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Gallery -->
+  <section class="products-gallery">
+    <div class="container">
+      <h2>Our Products</h2>
+      <div class="gallery-grid">
+        <div class="product-card">
+          <a href="https://peakward.com/clinker">
+            <img src="./PeakwardPozzolana_files/product1.af2016bbccacbbe52164.png" alt="Clinker">
+            <div class="product-overlay">
+              <h3>CLINKER</h3>
+            </div>
+          </a>
+        </div>
+        <div class="product-card">
+          <a href="https://peakward.com/limestone">
+            <img src="./PeakwardPozzolana_files/product2.6cb84674a6747fc9b846.png" alt="Limestone">
+            <div class="product-overlay">
+              <h3>LIMESTONE</h3>
+            </div>
+          </a>
+        </div>
+        <div class="product-card">
+          <a href="https://peakward.com/gypsum">
+            <img src="./PeakwardPozzolana_files/product3.8852cdd99c9b343628bf.png" alt="Gypsum">
+            <div class="product-overlay">
+              <h3>GYPSUM</h3>
+            </div>
+          </a>
+        </div>
+        <div class="product-card">
+          <a href="https://peakward.com/pozzolana">
+            <img src="./PeakwardPozzolana_files/product4.43784ccf5f73124f5f67.png" alt="Pozzolana">
+            <div class="product-overlay">
+              <h3>POZZOLANA</h3>
+            </div>
+          </a>
+        </div>
+        <div class="product-card">
+          <a href="https://peakward.com/slag">
+            <img src="./PeakwardPozzolana_files/product5.874cb7d4538a5359a36d.png" alt="Slag">
+            <div class="product-overlay">
+              <h3>SLAG</h3>
+            </div>
+          </a>
+        </div>
+        <div class="product-card">
+          <a href="https://peakward.com/construction_stone">
+            <img src="./PeakwardPozzolana_files/product6.978aac124613ef8260a6.png" alt="Construction Stone">
+            <div class="product-overlay">
+              <h3>CONSTRUCTION STONE</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-nav-section">
+          <h4>Quick Links</h4>
+          <div class="footer-nav-grid">
+            <a href="https://peakward.com/">Home</a>
+            <a href="https://peakward.com/clinker">Clinker</a>
+            <a href="https://peakward.com/about">About</a>
+            <a href="https://peakward.com/limestone">Limestone</a>
+            <a href="https://peakward.com/pozzolana">Pozzolana</a>
+            <a href="https://peakward.com/gypsum">Gypsum</a>
+            <a href="https://peakward.com/slag">Slag</a>
+            <a href="https://peakward.com/trading">Trading</a>
+            <a href="https://peakward.com/contact">Contact</a>
+            <a href="https://peakward.com/shipping">Shipping</a>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/peakward/" target="_blank">
+              <img src="./PeakwardPozzolana_files/facebook.cc0f224c5c0cf7ba897c01b85bf4a0e6.svg" alt="Facebook">
+            </a>
+            <a href="https://www.linkedin.com/company/peakward/" target="_blank">
+              <img src="./PeakwardPozzolana_files/linkedIn.ef65528d50a139a85564e49cb3953a2f.svg" alt="LinkedIn">
+            </a>
+            <a href="https://twitter.com/peakward" target="_blank">
+              <img src="./PeakwardPozzolana_files/twitter.aad01fb5bd82ec6ebc31ff477da70114.svg" alt="Twitter">
+            </a>
+          </div>
+          <div class="footer-contact">
+            <p>info@peakward.com</p>
+            <p><a href="tel:+88022227537">Tel: (880-2) 2222 75371</a></p>
+          </div>
+        </div>
+        
+        <div class="offices-grid">
+          <div class="office">
+            <h5>Peakward Enterprises (Holdings) LTD.</h5>
+            <h6>(Group Head Office)</h6>
+            <p>2901 Pacific Plaza, 29th Floor<br>410 Das Voeux Road West, Hong Kong</p>
+            <p>Tel: (852) 2857 6126</p>
+          </div>
+          
+          <div class="office">
+            <h5>PEAKWARD BANGLADESH LTD.</h5>
+            <h6>(BANGLADESH)</h6>
+            <p>Ahmed Tower (7th floor)<br>28-30, Kemal Ataturk Avenue<br>Banani, Dhaka-1213</p>
+            <p>Tel: (880-2) 7112263, 7122141</p>
+          </div>
+          
+          <div class="office">
+            <h5>PEAKWARDS ENTERPRISE (BEIJING)</h5>
+            <h6>(CHINA)</h6>
+            <p>Suit 1701-1703 17/F<br>Huantengbeitang Business Building<br>Beijing, PRC</p>
+            <p>Tel: (0) 86-10-51909139 Ext: 17806</p>
+          </div>
+          
+          <div class="office">
+            <h5>PEAKWARDS DENIZICLIK</h5>
+            <h6>(TURKEY)</h6>
+            <p>Konaklar Mah, Selvil Sok. 13<br>34.Levent, 34330 Istanbul</p>
+            <p>Tel: +90 212 282 42 30</p>
+          </div>
+          
+          <div class="office">
+            <h5>PEAKWARD ENTERPRISES INDIA</h5>
+            <h6>(INDIA)</h6>
+            <p>2044/6 Chitragupta Road<br>Paharganj, New Delhi - 110055</p>
+            <p>Mobile: +91 9873000756</p>
+          </div>
+          
+          <div class="office">
+            <h5>PEAKWARDS VIETNAM</h5>
+            <h6>(VIETNAM)</h6>
+            <p>Suit 1104, VIGLACERA Tower<br>No. 01 Thang Long Road<br>Hanoi, Vietnam</p>
+            <p>Tel: (84-4) 38580235/36</p>
+          </div>
+          
+          <div class="office">
+            <h5>PT. PEAKWARD INDONESIA</h5>
+            <h6>(INDONESIA)</h6>
+            <p>Menara Global 20th Floor<br>JI, Gatot Subroto Kav, 27<br>Jakarta</p>
+            <p>Mobile: +628117228895</p>
+          </div>
+          
+          <div class="office">
+            <h5>PEAKWARD ENTERPRISE FZE</h5>
+            <h6>(UAE)</h6>
+            <p>P.O. Box 10055<br>Ras Al Khaimah<br>United Arab Emirates</p>
+            <p>Tel: 971-7-2077775</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p>PEAKWARD ENTERPRISES (HOLDINGS) LIMITED. Copyright © 2023 all rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Modal -->
+  <div class="modal-backdrop" id="imageModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-inner">
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+      <img id="modalImage" src="" alt="Document">
+    </div>
+  </div>
+
+  <script>
+    function viewImage(src) {
+      document.getElementById('modalImage').src = src;
+      document.getElementById('imageModal').classList.add('active');
+    }
+    
+    function closeModal() {
+      document.getElementById('imageModal').classList.remove('active');
+      document.getElementById('modalImage').src = '';
+    }
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
